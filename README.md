@@ -1,8 +1,6 @@
 sendgrid
 =========
 
-_Now updated to work with Rails 3._
-
 What is SendGrid?
 -----------------
 
@@ -20,7 +18,7 @@ First of all, you'll need the gem. It's at http://rubygems.org/gems/sendgrid. If
 
 Before you can do anything with the sendgrid gem, you'll need to create your very own SendGrid account. Go ahead and do so at [http://sendgrid.com](http://sendgrid.com) (there's even a FREE account option).
 
-Next, update your application's SMTP settings to use SendGrid's servers (see [SendGrid's getting started guide](http://wiki.sendgrid.com/doku.php?id=get_started) for instructions).
+Next, update your application's SMTP settings to use SendGrid's servers. See the latest SendGrid documentation for up-to-date instructions: https://docs.sendgrid.com/for-developers/sending-email/ruby
 
 Example:
 
@@ -92,7 +90,7 @@ Here are a list of supported options for sendgrid\_enable and sendgrid\_disable:
 * :spamcheck
   * Call sendgrid\_spamcheck\_maxscore(4.5) to set a custom SpamAssassin threshold at which SendGrid drops emails (default value is 5.0).
 
-For further explanation see [SendGrid's wiki page on filters.](http://wiki.sendgrid.com/doku.php?id=filters)
+For further explanation see [SendGrid's documentation on filters.](https://docs.sendgrid.com/for-developers/sending-email/filtering-email)
 
 Custom parameters can be set using the sendgrid_unique_args methods.  Any key/value pairs defined thusly will
 be included as parameters in SendGrid post backs.  These are especially useful in cases where the recipient's
@@ -119,9 +117,23 @@ One issue that arises when delivering multiple emails at once is custom content.
 In this example, if <code>|subme|</code> is in the body of your email SendGrid will automatically substitute it for the string corresponding the recipient being delivered to. NOTE: You should ensure that the length of the substitution array is equal to the length of the recipients array.
 
 
+
+
+Test Coverage
+-------------
+
+To run the test suite:
+
+  bundle exec rake test
+
+To measure test coverage (using [SimpleCov](https://github.com/simplecov-ruby/simplecov)):
+
+  bundle exec rake coverage
+
+This will generate a coverage report in the `coverage/` directory. Open `coverage/index.html` in your browser to view the results.
+
 TODO
 ----
 
-* Test coverage (I would appreciate help writing tests).
 * Possibly integrate with SendGrid's Event API and some of the other goodies they provide.
 
