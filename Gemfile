@@ -1,6 +1,6 @@
-source "http://rubygems.org"
+source 'http://rubygems.org'
 
-gem "json"
+gem 'json'
 
 # Add dependencies required to use your gem here.
 # Example:
@@ -9,12 +9,12 @@ gem "json"
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
 group :development do
-  gem "shoulda", ">= 0"
-  gem "bundler", "~> 1.0.0"
-  gem "jeweler", "~> 1.5.1"
-  # gem "rcov", ">= 0"
+  gem 'shoulda'
 end
 
 group :test do
-  gem "actionmailer", ">= 2.3.2"
+  gem 'actionmailer', '7.2.2.2'
+  gem 'rake'
+  gem 'simplecov', require: false
+  gem 'test-unit', '~> 3.7'
 end
